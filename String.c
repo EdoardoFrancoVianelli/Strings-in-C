@@ -66,6 +66,68 @@ void addString(String **s, char *str){
 	}
 }
 
+String * substring(String *s, int start, int end){ 
+
+	if (end > start){
+		printf("End cannot be greater than start: [start:%d end:%d]\n", start, end); 
+		return 0;
+	}
+
+	if (start < 0 || end < 0){ 
+		printf("Start and end cannot be < 0 [start:%d end:%d]\n", start, end); 
+		return 0;
+	}
+
+	if (start >= s->length || end >= s->length){ 
+		printf("Invalid indices [start:%d end:%d]\n", start, end);
+	}
+
+	if (s == 0){ 
+		return 0;
+	}
+
+	stringCharacter *current_char = s->start;
+	String *s = initString();
+	int i; 
+	for (i = start; i < end; i++){ 
+		//addCharacter()
+	}
+}
+
+int indexOf(String *s, char c, int from){ 
+
+	int i;
+
+	for (i = from; i < s->length; i++){ 
+		if (s->start->current == c){ 
+			return i;
+		}
+		s->start = s->start->next;
+	}
+
+	return -1;
+}
+
+char characterAtIndex(String *s, int i){ 
+
+	stringCharacter *current;
+	char ret;
+	int k;
+
+	current = s->start;
+
+	if (i < 0 || i >= s->length){ 
+		return -1;
+	}
+
+	for (k = 0; k <= i; k++){ 
+		current = current->next;
+	}
+
+	ret = current->current;
+	return ret;
+}
+
 void printString(String *s){ 
 
 	if (s == 0) return;
